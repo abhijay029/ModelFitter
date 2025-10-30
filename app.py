@@ -64,7 +64,7 @@ def predict_fit():
     df_input = pd.DataFrame(X)
     df_input = pd.get_dummies(df_input)
 
-    model = pickle.load(open("svm_scaled.pkl", "rb"))
+    model = pickle.load(open("XGBoost_model_unscaled.pkl", "rb"))
     prediction = model.predict(df_input)
     outcome = "Underfit" if prediction[0] == 0 else ("Normal Fit" if prediction[0] == 1 else "Overfit")
     container.subheader("Prediction Result")
